@@ -29,11 +29,15 @@ body {
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
-  margin-left: 2vw;
-  margin-right: 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
   float: left;
   margin-bottom:2vh;
   margin-top:2vh;
+  border: solid;
+  border-color: #009Eff;
+  border-radius: 5%;
+  padding:1vw;
 }
 
 .cell {
@@ -54,8 +58,7 @@ body {
 }
 
 .cell:nth-child(3n + 1) {
-  border-left: none;
-  margin left: 200px;
+  border-left: none;  
 }
 
 .cell:nth-child(3n + 3) {
@@ -70,7 +73,7 @@ body {
 
 .cell.x,
 .cell.circle {
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .cell.x::before,
@@ -78,13 +81,6 @@ body {
 .cell.circle::before {
   background-color: black;
 }
-
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before {
-  background-color: lightgrey;
-}
-
 .cell.x::before,
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before,
@@ -93,6 +89,7 @@ body {
   position: absolute;
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
+  
 }
 
 .cell.x::before,
@@ -122,7 +119,11 @@ body {
 
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  width: calc(var(--mark-size) * 0.6);
-  height: calc(var(--mark-size) * 0.6);
+  width: calc(var(--mark-size) * 0.65);
+  height: calc(var(--mark-size) * 0.65);
   background-color: white;
+}
+.cell:not(.x):not(.circle):hover
+{
+	background-color:lightgray;
 }
