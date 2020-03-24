@@ -250,23 +250,6 @@ else
 	console.log(lastId)
 	turn++}
 }
-
-/*
-function endGame(draw) {
-  if (draw) {
-    winningMessageTextElement.innerText = 'Draw!'
-  } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
-  }
-  winningMessageElement.classList.add('show')
-}
-
-function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
-  })
-}
-*/
 function placeMark(cell, currentClass) {
 cell.classList.add(currentClass)
 }
@@ -274,12 +257,3 @@ cell.classList.add(currentClass)
 function swapTurns() {
   circleTurn = !circleTurn
 }
-/*
-function checkWin(currentClass) {
-  return WINNING_COMBINATIONS_BOARD1.some(combination => {
-    return combination.every(index => {
-      return cellElements[index].classList.contains(currentClass)
-    })
-  })
-}
-
