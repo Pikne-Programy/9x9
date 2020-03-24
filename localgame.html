@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="localgame.js" defer></script>
+  <title>Tic Tac Toe 9x9</title>
+</head>
+<body>
+  <div class="bigboard" >
+   <div class="board" id="board0">
+    <div class="cell" id ="cell_0" data-cell></div>
+    <div class="cell" id ="cell_1" data-cell></div>
+    <div class="cell" id ="cell_2" data-cell></div>
+    <div class="cell" id ="cell_3" data-cell></div>
+    <div class="cell" id ="cell_4" data-cell></div>
+    <div class="cell" id ="cell_5" data-cell></div>
+    <div class="cell" id ="cell_6" data-cell></div>
+    <div class="cell" id ="cell_7" data-cell></div>
+    <div class="cell" id ="cell_8" data-cell></div>
+  </div>
+  <div class="board" id="board1">
+    <div class="cell" id ="cell_9" data-cell></div>
+    <div class="cell" id ="cell_10" data-cell></div>
+    <div class="cell" id ="cell_11" data-cell></div>
+    <div class="cell" id ="cell_12" data-cell></div>
+    <div class="cell" id ="cell_13" data-cell></div>
+    <div class="cell" id ="cell_14" data-cell></div>
+    <div class="cell" id ="cell_15" data-cell></div>
+    <div class="cell" id ="cell_16" data-cell></div> 
+	<div class="cell" id ="cell_17" data-cell></div>
+    
+  </div>
+  <div class="board" id="board2">
+    <div class="cell" id ="cell_18" data-cell></div>
+    <div class="cell" id ="cell_19" data-cell></div>
+    <div class="cell" id ="cell_20" data-cell></div>
+    <div class="cell" id ="cell_21" data-cell></div>
+    <div class="cell" id ="cell_22" data-cell></div>
+    <div class="cell" id ="cell_23" data-cell></div>
+    <div class="cell" id ="cell_24" data-cell></div>
+    <div class="cell" id ="cell_25" data-cell></div>
+    <div class="cell" id ="cell_26" data-cell></div>
+  </div>  
+  <div class="board" id="board3">
+    <div class="cell" id ="cell_27" data-cell></div>
+    <div class="cell" id ="cell_28" data-cell></div>
+    <div class="cell" id ="cell_29" data-cell></div>
+    <div class="cell" id ="cell_30" data-cell></div>
+    <div class="cell" id ="cell_31" data-cell></div>
+    <div class="cell" id ="cell_32" data-cell></div>
+    <div class="cell" id ="cell_33" data-cell></div>
+    <div class="cell" id ="cell_34" data-cell></div>
+    <div class="cell" id ="cell_35" data-cell></div>
+    
+  </div>  
+  <div class="board" id="board4">
+    <div class="cell" id ="cell_36" data-cell></div>
+    <div class="cell" id ="cell_37" data-cell></div>
+    <div class="cell" id ="cell_38" data-cell></div>
+    <div class="cell" id ="cell_39" data-cell></div>
+    <div class="cell" id ="cell_40" data-cell></div>
+    <div class="cell" id ="cell_41" data-cell></div>
+    <div class="cell" id ="cell_42" data-cell></div>
+    <div class="cell" id ="cell_43" data-cell></div>
+    <div class="cell" id ="cell_44" data-cell></div>
+
+  </div>  
+  <div class="board" id="board5">
+    <div class="cell" id ="cell_45" data-cell></div>
+    <div class="cell" id ="cell_46" data-cell></div>
+    <div class="cell" id ="cell_47" data-cell></div>
+    <div class="cell" id ="cell_48" data-cell></div>
+    <div class="cell" id ="cell_49" data-cell></div>
+    <div class="cell" id ="cell_50" data-cell></div>
+    <div class="cell" id ="cell_51" data-cell></div>
+    <div class="cell" id ="cell_52" data-cell></div>
+    <div class="cell" id ="cell_53" data-cell></div>
+
+  </div>  
+  <div class="board" id="board6">
+    <div class="cell" id ="cell_54" data-cell></div>
+    <div class="cell" id ="cell_55" data-cell></div>
+    <div class="cell" id ="cell_56" data-cell></div>
+    <div class="cell" id ="cell_57" data-cell></div>
+    <div class="cell" id ="cell_58" data-cell></div>
+    <div class="cell" id ="cell_59" data-cell></div>
+    <div class="cell" id ="cell_60" data-cell></div>
+    <div class="cell" id ="cell_61" data-cell></div>
+    <div class="cell" id ="cell_62" data-cell></div>
+  </div>  
+  <div class="board" id="board7">
+    <div class="cell" id ="cell_63" data-cell></div>
+    <div class="cell" id ="cell_64" data-cell></div>
+    <div class="cell" id ="cell_65" data-cell></div>
+    <div class="cell" id ="cell_66" data-cell></div>
+    <div class="cell" id ="cell_67" data-cell></div>
+    <div class="cell" id ="cell_68" data-cell></div>
+    <div class="cell" id ="cell_69" data-cell></div>
+    <div class="cell" id ="cell_70" data-cell></div>
+    <div class="cell" id ="cell_71" data-cell></div>
+  </div>  
+  <div class="board" id="board8">
+	<div class="cell" id ="cell_72" data-cell></div>
+	<div class="cell" id ="cell_73" data-cell></div>
+	<div class="cell" id ="cell_74" data-cell></div>
+	<div class="cell" id ="cell_75" data-cell></div>
+	<div class="cell" id ="cell_76" data-cell></div>
+	<div class="cell" id ="cell_77" data-cell></div>
+	<div class="cell" id ="cell_78" data-cell></div>
+	<div class="cell" id ="cell_79" data-cell></div>
+	<div class="cell" id ="cell_80" data-cell></div>
+  </div>
+  </div>
+  <!-- <div class="winning-message" id="winningMessage"> 
+    <div data-winning-message-text></div>
+    <button id="restartButton">Restart</button>
+  </div>-->
+</body>
+</html>
