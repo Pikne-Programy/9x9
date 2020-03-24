@@ -4,111 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style1.css">
+  <script src="script3.js" defer></script>
   <title>Tic Tac Toe 9x9</title>
 </head>
 <body>
+	<header>menu</header>
+  <div id="desc"><div id="title">Tic-Tac-Toe 9x9 EXTREME</div>
+  Welcome, to the most extreme Tic-Tac-Toe<br /> 
+  made by PIKne Programy!
+  We are happy with your visit.<br /> 
+  Join online game or play with your friends on one device.<br />
+ <a href="onlinettt.html" class="button1">Online game</a>	<a href="localttt.html" class="button1">Local PvP</a>
+  <br /><br />9x9 Tic-Tac-Toe mobile app available <a href="https://github.com/Pikne-Programy/9x9-mobile/releases" target="_blank">here</a> Download now!</div>
   <div class="bigboard" >
-   <div class="board" id="board0">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
   </div>
-  <div class="board" id="board1">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
+  
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
   </div>
-  <div class="board" id="board2">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board3">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board4">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board5">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board6">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board7">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-  </div>  
-  <div class="board" id="board8">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
+  
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
   </div>
+   
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+   
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+   
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+   
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+    
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+    
+  <div class="board">
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+	<div class="cell"  data-cell></div>
+  </div>
+  
   </div>
 </body>
 </html>
