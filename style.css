@@ -9,6 +9,8 @@
 
 body {
   margin: 0;
+background-color: red;
+background-image: linear-gradient(to bottom right, red, yellow);
 }
 
 .bigboard
@@ -35,9 +37,10 @@ body {
   margin-bottom:2vh;
   margin-top:2vh;
   border: solid;
-  border-color: #009Eff;
+  border-color: gray;
   border-radius: 5%;
   padding:1vw;
+background-color: white;
 }
 
 .cell {
