@@ -6,12 +6,35 @@
   --cell-size: 7vh;
   --mark-size: calc(var(--cell-size) * .9);
 }
-
+.dropdown {
+display: inline-block;
+}
+.dropdown-content {
+display: none;
+position: absolute;
+}
+.hamburger{
+width: 20px;
+height: 3px;
+background-color: black;
+margin: 3px 0;
+}
+.dropbtn{
+background-color: rgba(0,0,0,0);
+padding: 16px;
+border: none;
+cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+display: block;
+}
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
+background-color: red;
+background-image: linear-gradient(to bottom right, red, yellow);
 }
 a:hover {
       text-decoration: none;
@@ -120,6 +143,7 @@ header
   height: 24vh;
   background-position: center;
   background-size: 24vh;
+background-color: white;
 }
 
 .cell {
@@ -243,3 +267,5 @@ header
   display: flex;
 }
 */
+
+
