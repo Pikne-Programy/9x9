@@ -12,6 +12,7 @@ display: inline-block;
 .dropdown-content {
 display: none;
 position: absolute;
+text-align: center;
 }
 .hamburger{
 width: 20px;

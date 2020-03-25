@@ -1,1 +1,47 @@
+#title {
+margin-bottom: 12vh;
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 7vh;
+text-align: center;
+}
+#tekst {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 2.8vh;
+	text-align: center;
+}
+body {
+background-color: red;
+background-image: linear-gradient(to bottom right, red, yellow);
+height: 100vh;
+width: 100%;
+}
+.image {
+height: 45vh;
+}
+.dropdown {
+display: inline-block;
+}
+.dropdown-content {
+display: none;
+position: absolute;
+text-align: center;
+}
+.hamburger{
+width: 20px;
+height: 3px;
+background-color: black;
+margin: 3px 0;
+}
+.dropbtn{
+background-color: rgba(0,0,0,0);
+padding: 16px;
+border: none;
+cursor: pointer;
+}
+.dropdown:hover .dropdown-content {
+display: block;
+}
+header {
+text-align: right;
 
+}
