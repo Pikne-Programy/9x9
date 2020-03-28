@@ -1,4 +1,4 @@
-const ttt_websocket = new WebSocket("ws://85.198.250.135:4780");
+const ttt_websocket = new WebSocket("wss://85.198.250.135:4780");
 const X_CLASS = 'x'
 const CIRCLE_CLASS = 'circle'
 const cellElements = document.querySelectorAll('div.cell')
