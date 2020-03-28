@@ -14,7 +14,7 @@ let obj = {
 	"status": 0,
     "method": "JON",
     "params": {
-		room: "public"
+	room: "public"
 	},
     "time": Math.round((new Date()).getTime()/1000)	
 	}
@@ -33,11 +33,10 @@ ttt_websocket.onmessage = function (event) {
 	let packet = JSON.parse(msgrec)
 	if (packet["method"] == "STT")
 	{
-		console.log(packet)
-			document.getElementById("your_mark").innerHTML = " " + packet["params"]["you"]
-			document.getElementById("now_playing").innerHTML = " " + packet["params"]["move"]
+		document.getElementById("your_mark").innerHTML = " " + packet["params"]["you"]
+		document.getElementById("now_playing").innerHTML = " " + packet["params"]["move"]
 			
-			for (let i = 0; i < packet["params"]["bigBoard"].length; ++i) 
+	for (let i = 0; i < packet["params"]["bigBoard"].length; ++i) 
 	{
         if (packet["params"]["bigBoard"][i] == "X") 
 		{
