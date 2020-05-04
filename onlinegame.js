@@ -21,9 +21,13 @@ let circleTurn
 let turn = 0;
 let cell;
 let clicked_cell
-let rooms = number;
-if(number == "")
-	rooms = "public";
+let rooms = "public";
+rooms = number;
+
+if(number == null || number == "")
+{
+rooms = "public";
+}
 
 let obj = {
 	"status": 0,
