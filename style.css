@@ -7,11 +7,11 @@
   --mark-size: calc(var(--cell-size) * .9);
 }
 
-body {
+body, html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: black;
 }
 a:hover {
@@ -32,17 +32,43 @@ header
 	margin-bottom: 8vh;
 	font-size: 2vh;
 }
-button
+@media screen and (device-aspect-ratio: 4/3)
 {
-	margin-top:5vh;
-	margin-right: 4vw;
-	margin-left: 2vw;
-	border-radius: 25%;
-	background-color: lightgray;
-	height: 8vh;
-	width: 12vw;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 2.5vh;
+	:root {
+  --cell-size: 6vh;
+  --mark-size: calc(var(--cell-size) * .9);
+}
+	.cell{
+		max-width: var(--cell-size);
+		max-height: var(--cell-size);
+	}
+	.board
+	{
+		max-height:22.5vh;
+		max-width:22.5vh;
+	}
+	.bigboard
+	{
+		max-width: 70vh;
+		margin-top:0px;
+		margin-right: 2vw;
+	}
+	#desc
+	{
+		max-width: 55vh;
+		margin-left: 4vw;
+		margin-left: 1vw;
+		
+	}
+	h1
+	{
+		font-size:6.2vh;
+	}
+	h2
+	{
+		font-size:2.59vh;
+		line-height: 5vh;
+	}
 }
 #desc
 {
@@ -76,6 +102,18 @@ button
   margin-left: 7vw;
   margin-top: 5vh;
 }
+.bigboard1
+{
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  padding: 1vh;
+  float: left;
+  margin-left: 7vw;
+  margin-top: 0;
+}
 .board {
   display: grid;
   justify-content: center;
@@ -85,11 +123,11 @@ button
   grid-template-columns: repeat(3, auto);
   margin-left: 1vw;
   margin-right: 1vw;
-  margin-bottom:2vh;
-  margin-top:2vh;
-  border: solid;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  border: 0.4vh solid;
   border-color: white;
-  border-radius: 5%;
+  border-radius: 2.5vh;
   padding:1vw;
   width: 24vh;
   height: 24vh;
@@ -184,6 +222,7 @@ button
 .board.big
 {
 	background-color: inherit;
+	cursor: default;
 }
 
 .board.big:hover
@@ -194,7 +233,7 @@ button
 
 #game
 {
-	margin-top:27vh;
+	margin-top: 27vh;
 	float: left;
 	height: 40vh;
 	width: 40vh;
@@ -210,6 +249,8 @@ button
 #info
 {
 	width: 20vw;
-	height: 10vh;
-	margin-top: 20vh;
+	height: 7vh;
+	margin-top: auto;
+	margin-bottom: auto;
+	font-size: 1em;
 }
