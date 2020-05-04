@@ -1,16 +1,6 @@
 const X_CLASS = 'x'
 const CIRCLE_CLASS = 'circle'
-/* ściąga
-const board0 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-const board1 = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-const board2 = [18, 19, 20, 21, 22, 23, 24, 25, 26];
-const board3 = [27, 28, 29, 30, 31, 32, 33, 34, 35];
-const board4 = [36, 37, 38, 39, 40, 41, 42, 43, 44];
-const board5 = [45, 46, 47, 48, 49, 50, 51, 52, 53];
-const board6 = [54, 55, 56, 57, 58, 59, 60, 61, 62];
-const board7 = [63, 64, 65, 66, 67, 68, 69, 70, 71];
-const board8 = [72, 73, 74, 75, 76, 77, 78, 79, 80];
-*/
+let wins;
 const WINNING_COMBINATIONS_BOARD0 = [
   [0, 1, 2],
   [3, 4, 5],
@@ -101,18 +91,33 @@ const WINNING_COMBINATIONS_BOARD8 = [
   [72, 76, 80],
   [74, 76, 78]
 ]
-const cellElements = document.querySelectorAll('[data-cell]')
+const WINNING_COMBINATIONS_BOARD9 = [
+  [72, 73, 74],
+  [75, 76, 77],
+  [78, 79, 80],
+  [72, 75, 78],
+  [73, 76, 79],
+  [74, 77, 80],
+  [72, 76, 80],
+  [74, 76, 78]
+]
+const cellElements = document.querySelectorAll('div.cell')
 const board_id = document.querySelectorAll('div.board')
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let circleTurn
 let turn = 0;
-var cell;
+let x;
+let y;
+let cell;
+let wins0;
+let wins1;
 
 startGame()
 
-restartButton.addEventListener('click', startGame)
+let marked = -1; 
+//restartButton.addEventListener('click', startGame)
 
 function startGame() {
   circleTurn = false
@@ -122,138 +127,416 @@ function startGame() {
     cell.removeEventListener('click', getClick)
     cell.addEventListener('click', getClick, { once: true })
   })
-  winningMessageElement.classList.remove('show')
-  board_id.forEach(board => {board.style.border = "solid gray"})
+  board_id.forEach(board => {board.style.border = "solid white"})
+  wins = "012345678"
 
 }
+
 function getClick(e)
-{	
-const cell = e.target	
-	const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
+{
+const cell = e.target
+const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
+if (currentClass == X_CLASS)
+	document.getElementById("info").innerHTML="Now playing: X"
+if (currentClass == CIRCLE_CLASS)
+	document.getElementById("info").innerHTML="Now playing: O"
+
 if (cell.classList.contains(CIRCLE_CLASS) || cell.classList.contains(X_CLASS)){
 	cell.removeEventListener('click', getClick)
 }
-
 else
-
+	{	
+if (marked == -1)
+{
+	board_id.forEach(board => {board.style.border = "solid white"})
+	cellElements.forEach(cell => {cell.addEventListener('click', getClick)})
+}	
+else
+{
+	board_id[marked].style.border = "solid white";
+	
+	for(var i = (marked * 9); i < (marked * 9) + 9; ++i)
 	{
-		
-	console.log("clicked")
-	console.log(turn)
+		cellElements[i].addEventListener('click', getClick)
+	}
+}
 	lastId = cell.id
 	
-	if (lastId == "cell_0" || lastId == "cell_9" || lastId == "cell_18" || lastId == "cell_27" || lastId == "cell_36" || lastId == "cell_45" || lastId == "cell_54" || lastId == "cell_63" || lastId == "cell_72")
+	if (lastId == 0 || lastId == 9 || lastId == 18 || lastId == 27 || lastId == 36 || lastId == 45 || lastId == 54 || lastId == 63 || 
+	lastId == 72)
 	  {
+		if(wins[0] == "X" || wins[0] == "O")
+		{
+			marked = -1;
+		}
+		else 
+		{
+			marked = 0;
+		}
 		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
 		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[0].style.border = "solid gray"
+		board_id[0].style.border = "solid white"
 		for(let i=0; i<9; i++)
 		{
 			cellElements[i].addEventListener('click', getClick)
 	    }
 	  }
 	 
-	else if (lastId == "cell_1" || lastId == "cell_10" || lastId == "cell_19" || lastId == "cell_28" || lastId == "cell_37" || 			lastId == "cell_46" || lastId == "cell_55" || lastId == "cell_64" || lastId == "cell_73")
+	else if (lastId == 1 || lastId == 10 || lastId == 19 || lastId == 28 || lastId == 37 ||	lastId == 46 || lastId == 55 || lastId == 64 || lastId == 73)
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[1].style.border = "solid gray"
-		for(let i=9; i<18; i++)
+		if(wins[1] == "X" || wins[1] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-			
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 1;
+		}
 	  }
 	  
-	  else if (lastId == "cell_2" || lastId == "cell_11" || lastId == "cell_20" || lastId == "cell_29" || lastId == "cell_38" || 		lastId == "cell_47" || lastId == "cell_56" || lastId == "cell_65" || lastId == "cell_74")
+	  else if (lastId == 2 || lastId == 11 || lastId == 20 || lastId == 29 || lastId == 38 || lastId == 47 || lastId == 56 || lastId == 65|| lastId == 74)
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[2].style.border = "solid gray"
-		for(let i=18; i<27; i++)
+		if(wins[2] == "X" || wins[2] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 2;
+		}		  
 	  }
 	  
-	  else if (lastId == "cell_3" || lastId == "cell_12" || lastId == "cell_21" || lastId == "cell_30" || lastId == "cell_39" || 		lastId == "cell_48" || lastId == "cell_57" || lastId == "cell_66" || lastId == "cell_75")
+	  else if (lastId == 3 || lastId == 12 || lastId == 21 || lastId == 30 || lastId == 39 || lastId == 48 || lastId == 57 || lastId == 66 || lastId == 75)
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[3].style.border = "solid gray"
-		for(let i=27; i<36; i++)
+		if(wins[3] == "X" || wins[3] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-			
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 3;
+		}		  
 	  }
 	  
-		else if (lastId == "cell_4" || lastId == "cell_13" || lastId == "cell_22" || lastId == "cell_31" || lastId == "cell_40" || 		lastId == "cell_49" || lastId == "cell_58" || lastId == "cell_67" || lastId == "cell_76")
+		else if (lastId == "4" || lastId == "13" || lastId == "22" || lastId == "31" || lastId == "40" || 		lastId == "49" || lastId == "58" || lastId == "67" || lastId == "76")
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[4].style.border = "solid gray"
-		for(let i=36; i<45; i++)
+		if(wins[4] == "X" || wins[4] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 4;
+		}	
 	  }
 		
-		else if (lastId == "cell_5" || lastId == "cell_14" || lastId == "cell_23" || lastId == "cell_32" || lastId == "cell_41" || 		lastId == "cell_50" || lastId == "cell_59" || lastId == "cell_68" || lastId == "cell_77")
+		else if (lastId == "5" || lastId == "14" || lastId == "23" || lastId == "32" || lastId == "41" || 		lastId == "50" || lastId == "59" || lastId == "68" || lastId == "77")
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-	    board_id[5].style.border = "solid gray"
-		for(let i=45; i<54; i++)
+		if(wins[5] == "X" || wins[5] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 5;
+		}	
 	  }
 		
-		else if (lastId == "cell_6" || lastId == "cell_15" || lastId == "cell_24" || lastId == "cell_33" || lastId == "cell_42" || 		lastId == "cell_51" || lastId == "cell_60" || lastId == "cell_69" || lastId == "cell_78")
+		else if (lastId == "6" || lastId == "15" || lastId == "24" || lastId == "33" || lastId == "42" || 		lastId == "51" || lastId == "60" || lastId == "69" || lastId == "78")
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[6].style.border = "solid gray"
-		
-		for(let i=54; i<63; i++)
+		if(wins[6] == "X" || wins[6] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 6;
+		}	
 	  }
 		
-		else if (lastId == "cell_7" || lastId == "cell_16" || lastId == "cell_25" || lastId == "cell_34" || lastId == "cell_43" || 		lastId == "cell_52" || lastId == "cell_61" || lastId == "cell_70" || lastId == "cell_79")
+		else if (lastId == "7" || lastId == "16" || lastId == "25" || lastId == "34" || lastId == "43" || 		lastId == "52" || lastId == "61" || lastId == "70" || lastId == "79")
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[7].style.border = "solid gray"
-		for(let i=63; i<72; i++)
+		if(wins[7] == "X" || wins[7] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 7;
+		}	
 	  }
 		
-		else if (lastId == "cell_8" || lastId == "cell_17" || lastId == "cell_26" || lastId == "cell_35" || lastId == "cell_44" || lastId == "cell_53" || lastId == "cell_62" || lastId == "cell_71" || lastId == "cell_80")
+		else if (lastId == "8" || lastId == "17" || lastId == "26" || lastId == "35" || lastId == "44" || lastId == "53" || lastId == "62" || lastId == "71" || lastId == "80")
 	  {
-		cellElements.forEach(cell => {cell.removeEventListener('click', getClick)})
-		board_id.forEach(board => {board.style.border = "0px"})
-		board_id[8].style.border = "solid gray"
-		for(let i=72; i<81; i++)
+		if(wins[8] == "X" || wins[8] == "O")
 		{
-			cellElements[i].addEventListener('click', getClick)
-	    }
+			marked = -1;
+		}
+		else 
+		{
+			marked = 8;
+		}	
 	  }
 
-  placeMark(cell, currentClass)
-  
+	bigBoard()
+	placeMark(cell, currentClass)
+	if(checkWins0(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins0 = wins.replace(/0/g, "X")
+			wins = wins0
+		}
+		else
+		{
+			wins0 = wins.replace(/0/g, "O")
+			wins = wins0
+		}
+	bigBoard()
+	wins = wins0	
+	}
+	console.log(checkWins1(currentClass))
+	if(checkWins1(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/1/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/1/g, "O")
+			
+		}	
+		wins = wins1
+	}
+	if(checkWins2(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/2/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/2/g, "O")
+		}	
+		wins = wins1
+	}
+	if(checkWins3(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/3/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/3/g, "O")
+		}	
+		wins = wins1
+	}
+	if(checkWins4(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/4/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/4/g, "O")
+		}	
+		bigBoard()
+		wins = wins1
+	}
+	if(checkWins5(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/5/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/5/g, "O")
+		}	
+		bigBoard()
+		wins = wins1
+	}
+	if(checkWins6(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/6/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/6/g, "O")
+		}	
+		bigBoard()
+		wins = wins1
+	}
+	if(checkWins7(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/7/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/7/g, "O")
+		}	
+		bigBoard()
+		wins = wins1
+	}
+	if(checkWins8(currentClass))
+	{
+		if(currentClass == X_CLASS)
+		{
+			wins1 = wins.replace(/8/g, "X")
+		}
+		else
+		{
+			wins1 = wins.replace(/8/g, "O")
+		}	
+		bigBoard()
+		wins = wins1
+	}
+	bigBoard();
+	checkWin()
     swapTurns()
-	console.log(lastId)
-	turn++}
+
+if (marked == -1)
+{
+	board_id.forEach(board => {board.style.border = "solid white"})
+	cellElements.forEach(cell => {cell.addEventListener('click', getClick)})
+	for(let i=0; i<9; i++)
+	{
+		if(wins[i] == "X" || wins[i] == "O")
+			board_id[i].style.border = "0px"
+	}
+}	
+else
+{
+	board_id.forEach(board => {board.style.border = "0px"})
+	board_id[marked].style.border = "solid white";
+	
+	for(let i = (marked * 9); i < (marked * 9) + 9; ++i)
+	{
+		cellElements[i].addEventListener('click', getClick)
+	}
 }
+}}
+
 function placeMark(cell, currentClass) {
 cell.classList.add(currentClass)
 }
 
 function swapTurns() {
   circleTurn = !circleTurn
+}
+
+
+function checkWins0(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD0.some(combination => 
+     combination.every(index => 
+      cellElements[index].classList.contains(currentClass)
+    )
+  )
+}
+function checkWins1(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD1.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}
+function checkWins2(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD2.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins3(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD3.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins4(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD4.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins5(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD5.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins6(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD6.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins7(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD7.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}function checkWins8(currentClass)
+{
+  return WINNING_COMBINATIONS_BOARD8.some(combination => 
+  combination.every(index => 
+  cellElements[index].classList.contains(currentClass)
+    )
+  )
+}
+function bigBoard(currentClass)
+{
+	for(let i = 0; i < 9; i++)
+	{
+		if(wins[i] == "X")
+		{
+			board_id[i].style.height = "24vh"
+            board_id[i].style.width = "24vh"
+            board_id[i].classList.add("big")
+            board_id[i].style.backgroundImage = "url(cross1.png)"
+			for(let j = i*9; j < i*9 + 9; j++)
+			{
+				cellElements[j].style.opacity = "0";
+				//cellElements[j].removeEventListener('click', getClick)
+			}
+		}
+		else if(wins[i] == "O")
+		{
+			board_id[i].style.height = "24vh"
+            board_id[i].style.width = "24vh"
+            board_id[i].classList.add("big")
+            board_id[i].style.backgroundImage = "url(circle1.png)"
+			for(let j = i*9; j < i*9 + 9; j++)
+			{
+				cellElements[j].style.opacity = "0";
+				//cellElements[j].removeEventListener('click', getClick)
+			}
+		}
+	}
+}
+
+function checkWin(currentClass) 
+{
+  if((wins[0] == "X" && wins[1] == "X" && wins[2] =="X") || (wins[3] == "X" && wins[4] == "X" && wins[5] =="X") || (wins[6] == "X" && wins[7] == "X" && wins[8] =="X") || (wins[0] == "X" && wins[3] == "X" && wins[6] =="X") || (wins[1] == "X" && wins[4] == "X" && wins[7] =="X") || (wins[2] == "X" && wins[5] == "X" && wins[8] =="X") || (wins[0] == "X" && wins[4] == "X" && wins[8] =="X") || (wins[2] == "X" && wins[4] == "X" && wins[6] =="X"))
+	  document.getElementById("info").innerHTML = "X's win!"
+  else if
+  ((wins[0] == "O" && wins[1] == "O" && wins[2] =="O") || (wins[3] == "O" && wins[4] == "O" && wins[5] =="O") || (wins[6] == "O" && wins[7] == "O" && wins[8] =="O") || (wins[0] == "O" && wins[3] == "O" && wins[6] =="O") || (wins[1] == "O" && wins[4] == "O" && wins[7] =="O") || (wins[2] == "O" && wins[5] == "O" && wins[8] =="O") || (wins[0] == "O" && wins[4] == "O" && wins[8] =="O") || (wins[2] == "O" && wins[4] == "O" && wins[6] =="O"))
+	  document.getElementById("info").innerHTML = "O's win!"
+  else
+	{}
 }
