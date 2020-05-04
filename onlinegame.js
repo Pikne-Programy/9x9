@@ -66,7 +66,6 @@ ttt_websocket.onmessage = function (event) {
 	}
 	if (packet["method"] == "STT")
 	{
-		console.log(packet)
 			document.getElementById("your_mark").innerHTML = " " + packet["params"]["you"]
 			document.getElementById("now_playing").innerHTML = " " + packet["params"]["move"]
 			
